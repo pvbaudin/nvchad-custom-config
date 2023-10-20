@@ -23,4 +23,7 @@ vim.cmd([[
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | NvimTreeFindFile | wincmd p | endif
 ]])
 
-
+-- Set 72 character textwidth for git commit messages
+vim.cmd([[
+  autocmd FileType gitcommit set textwidth=72
+]])

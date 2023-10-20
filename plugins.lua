@@ -59,7 +59,12 @@ local plugins = {
    {
      "normen/vim-pio",
      lazy=false,
-   }
+   },
+
+  {
+    'Asheq/close-buffers.vim',
+    lazy=false,
+  }
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
