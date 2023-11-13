@@ -48,6 +48,8 @@ local plugins = {
     end,
   },
 
+
+  {'akinsho/git-conflict.nvim', version = "*", config = true},
   -- {
   --   "normen/vim-pio",
   --   lazy = false,
