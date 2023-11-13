@@ -27,3 +27,13 @@ vim.cmd([[
 vim.cmd([[
   autocmd FileType gitcommit set textwidth=72
 ]])
+
+-- trigger autoread when file changes on disk
+vim.cmd([[
+  set autoread
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+  " notification after file change
+  autocmd FileChangedShellPost *
+        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+]])
