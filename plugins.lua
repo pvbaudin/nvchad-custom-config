@@ -48,6 +48,12 @@ local plugins = {
     end,
   },
 
+  {
+    'aklt/plantuml-syntax',
+     event = 'VimEnter',
+  },
+
+
 
   {'akinsho/git-conflict.nvim', version = "*", config = true},
   -- {
