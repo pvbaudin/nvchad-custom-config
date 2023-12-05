@@ -7,15 +7,15 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
+    -- dependencies = {
       -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
-    },
+    --   {
+    --     "jose-elias-alvarez/null-ls.nvim",
+    --     config = function()
+    --       require "custom.configs.null-ls"
+    --     end,
+    --   },
+    -- },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
@@ -66,6 +66,13 @@ local plugins = {
   {
     'Asheq/close-buffers.vim',
     lazy=false,
+  },
+
+  {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      ft = { "markdown" },
+      build = function() vim.fn["mkdp#util#install"]() end,
   }
   -- To make a plugin not be loaded
   -- {
