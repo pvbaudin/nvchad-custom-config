@@ -50,10 +50,19 @@ local plugins = {
 
   {
     'aklt/plantuml-syntax',
+    lazy = false,
+     -- event = 'VimEnter',
+  },
+
+  {
+    'tyru/open-browser.vim',
      event = 'VimEnter',
   },
 
-
+  {
+    'weirongxu/plantuml-previewer.vim',
+     event = 'VimEnter',
+  },
 
   {'akinsho/git-conflict.nvim', version = "*", config = true},
   -- {
