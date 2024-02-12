@@ -12,7 +12,6 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
-
   },
   indent = {
     enable = true,
@@ -46,6 +45,7 @@ M.nvimtree = {
   git = {
     enable = true,
   },
+
   renderer = {
     highlight_git = true,
     icons = {
@@ -54,14 +54,6 @@ M.nvimtree = {
       },
     },
   },
-  filters = {
-    dotfiles  = false,
-    git_ignored = false; --show ignored files by default
-    -- git_clean = true,
-    -- no_buffer = true,
-    custom = {},
-    exclude = {},
-  }
 }
 
 return M

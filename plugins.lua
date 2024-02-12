@@ -7,15 +7,15 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
-    -- dependencies = {
+    dependencies = {
       -- format & linting
-    --   {
-    --     "jose-elias-alvarez/null-ls.nvim",
-    --     config = function()
-    --       require "custom.configs.null-ls"
-    --     end,
-    --   },
-    -- },
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require "custom.configs.null-ls"
+        end,
+      },
+    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
@@ -31,6 +31,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+    lazy = false,
   },
 
   {
@@ -49,54 +50,16 @@ local plugins = {
   },
 
   {
-    'aklt/plantuml-syntax',
-    lazy = false,
-     -- event = 'VimEnter',
+    "normen/vim-pio",
+    config = function()
+      require("vim-pio").setup()
+    end,
   },
 
-  {
-    'tyru/open-browser.vim',
-     event = 'VimEnter',
-  },
-
-  {
-    'weirongxu/plantuml-previewer.vim',
-     event = 'VimEnter',
-  },
-
-  {'akinsho/git-conflict.nvim', version = "*", config = true},
-  -- {
-  --   "normen/vim-pio",
-  --   lazy = false,
-  --   config = function()
-  --     require("vim-pio").setup()
-  --   end,
-  -- },
-
-   {
-     "normen/vim-pio",
-     lazy=false,
-   },
-
-  {
-    'Asheq/close-buffers.vim',
-    lazy=false,
-  },
-
-  {
-      "iamcco/markdown-preview.nvim",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      ft = { "markdown" },
-      build = function() vim.fn["mkdp#util#install"]() end,
-  },
-
-  {
-    "karb94/neoscroll.nvim",
-    lazy = false,
-    config = function ()
-      require('neoscroll').setup {}
-    end
-  }
+--  {
+--    "normen/vim-pio",
+--    lazy=false,
+--  }
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

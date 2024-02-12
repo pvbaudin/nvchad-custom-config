@@ -6,6 +6,13 @@ local autocmd = vim.api.nvim_create_autocmd
 --   command = "tabdo wincmd =",
 -- })
 
+
+-- Scroll down half a page with Ctrl+D
+vim.api.nvim_set_keymap('n', '<C-d>', ':resize -2<CR>', { noremap = true, silent = true })
+
+-- Scroll up half a page with Ctrl+U
+vim.api.nvim_set_keymap('n', '<C-u>', ':resize +2<CR>', { noremap = true, silent = true })
+
 -- Set relative line numbers as the default
 vim.cmd('set relativenumber')
 
@@ -23,30 +30,4 @@ vim.cmd([[
   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | NvimTreeFindFile | wincmd p | endif
 ]])
 
--- Set 72 character textwidth for git commit messages
-vim.cmd([[
-  autocmd FileType gitcommit set textwidth=72
-]])
-
--- trigger autoread when file changes on disk
-vim.cmd([[
-  set autoread
-  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-  " notification after file change
-  autocmd FileChangedShellPost *
-        \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-
-]])
-
-
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'GitConflictDetected',
-  callback = function()
-    vim.notify('Conflict detected in '..vim.fn.expand('<afile>'))
-    vim.keymap.set('n', 'cww', function()
-      engage.conflict_buster()
-      create_buffer_local_mappings()
-    end)
-  end
-})
 
