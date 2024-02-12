@@ -88,6 +88,14 @@ local plugins = {
       cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
       ft = { "markdown" },
       build = function() vim.fn["mkdp#util#install"]() end,
+  },
+
+  {
+    "karb94/neoscroll.nvim",
+    lazy = false,
+    config = function ()
+      require('neoscroll').setup {}
+    end
   }
   -- To make a plugin not be loaded
   -- {
