@@ -49,12 +49,12 @@ local plugins = {
     end,
   },
 
-  {
-    "normen/vim-pio",
-    config = function()
-      require("vim-pio").setup()
-    end,
-  },
+  -- {
+  --   "normen/vim-pio",
+  --   config = function()
+  --     require("vim-pio").setup()
+  --   end,
+  -- },
 
   {
     'tyru/open-browser.vim',
