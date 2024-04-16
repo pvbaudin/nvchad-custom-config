@@ -56,10 +56,56 @@ local plugins = {
     end,
   },
 
---  {
---    "normen/vim-pio",
---    lazy=false,
---  }
+  {
+    'tyru/open-browser.vim',
+     event = 'VimEnter',
+  },
+
+  {
+    'weirongxu/plantuml-previewer.vim',
+     event = 'VimEnter',
+  },
+
+  {'akinsho/git-conflict.nvim', version = "*", config = true},
+  -- {
+  --   "normen/vim-pio",
+  --   lazy = false,
+  --   config = function()
+  --     require("vim-pio").setup()
+  --   end,
+  -- },
+
+  {
+     "normen/vim-pio",
+     lazy=false,
+  },
+
+  -- {
+  --    "github/copilot.vim",
+  --    lazy=false,
+  -- },
+
+  {
+    'Asheq/close-buffers.vim',
+    lazy=false,
+  },
+  {
+    'sindrets/diffview.nvim'
+  },
+  {
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      ft = { "markdown" },
+      build = function() vim.fn["mkdp#util#install"]() end,
+  },
+
+  {
+    "karb94/neoscroll.nvim",
+    lazy = false,
+    config = function ()
+      require('neoscroll').setup {}
+    end
+  }
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
